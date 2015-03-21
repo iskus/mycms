@@ -1,0 +1,14 @@
+body {
+    background-color: #3A6079;
+}
+#main {
+    margin: 20px;
+    border: solid 1px grey;
+    padding: 5px 10px;
+    background-color: whiteSmoke;
+    min-height: 600px;
+    min-width: 900px;
+}
+#main, .used, .alpha, .book {
+    border-radius: 7px;
+}
