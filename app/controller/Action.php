@@ -1,5 +1,5 @@
 <?php
-
+namespace actions;
 	abstract class Action {
 		protected $params;
 		protected $viewName;
