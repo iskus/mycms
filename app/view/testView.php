@@ -11,14 +11,14 @@
 					} else {
 						$class = 'empty';
 					}
-					self::$doc['#main .'.$lang]->append("<span class='{$class}'>{$letter}</span>");
+					self::$doc['#main .' . $lang]->append("<span class='{$class}'>{$letter}</span>");
 				}
 			}
 
-			self::$doc['#main div span']->filter(':first')->attr('class','used');
+			self::$doc['#main div span']->filter(':first')->attr('class', 'used');
 			self::$doc['.alpha']->filter(':last')->after('<div class="list"></div>');
 			foreach ($this->data['books'] as $book) {
-				self::$doc['.list']->append("<div class='book'>".$book['title']."</div>");
+				self::$doc['.list']->append("<div class='book'>" . $book['title'] . "</div>");
 			}
 		}
 

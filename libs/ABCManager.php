@@ -1,22 +1,22 @@
 <?php
 
 	trait ABCManager {
-		public  $_letter  = 'A';
-		public  $_field = 'title';
-		public  $_table = 'books';
-		public  $_start = 0;
-		public  $_step = 20;
-		public  $_countsData = array();
-		public  $_listData = array();
-		public  $_DB;
+		public $_letter = 'A';
+		public $_field = 'title';
+		public $_table = 'books';
+		public $_start = 0;
+		public $_step = 20;
+		public $_countsData = array();
+		public $_listData = array();
+		public $_DB;
 
 		public function _init($options) {
 			if (is_array($options)) {
 				foreach ($options as $key => $val) {
-					if (property_exists($this, '_'.$key)) {
-						$this->{'_'.$key} = $this->_DB->escape_str($val);
+					if (property_exists($this, '_' . $key)) {
+						$this->{'_' . $key} = $this->_DB->escape_str($val);
 					} else {
-						throw new InvalidArgumentException(__CLASS__." said:
+						throw new InvalidArgumentException(__CLASS__ . " said:
 						Why you pass me invalid option >>{$key}<<!");
 					}
 				}

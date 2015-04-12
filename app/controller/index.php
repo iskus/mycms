@@ -1,4 +1,5 @@
 <?php
+	namespace app\controller;
 
 	class indexAction extends Action {
 		/*protected $params = array();
@@ -18,7 +19,10 @@
 			$View = new $this->viewName();
 		}*/
 
-		protected function execute() {}
-		protected function ajaxManager() {}
+		protected function execute() {
+		}
+
+		protected function ajaxManager() {
+		}
 
 	}

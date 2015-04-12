@@ -10,7 +10,7 @@
 				phpQuery::newDocument("<!DOCTYPE html>
 										<html>
 											<head>
-												<title>".$data["page"]."</title>
+												<title>" . $data["page"] . "</title>
 											</head>
 											<body>
 												<div id='main'></div>
@@ -18,9 +18,9 @@
 										</html>");
 			self::$doc['head']->append("
 				<script src='/web/js/jquery/jquery.js'></script>
-				<script src='/web/js/".$data["page"].".js'></script>
+				<script src='/web/js/" . $data["page"] . ".js'></script>
 				<link href='/web/css/style.css' rel='stylesheet' type='text/css' />
-				<link href='/web/css/".$data["page"].".css' rel='stylesheet' type='text/css' />
+				<link href='/web/css/" . $data["page"] . ".css' rel='stylesheet' type='text/css' />
 			");
 
 			$this->showPage();

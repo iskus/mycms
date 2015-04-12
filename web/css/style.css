@@ -1,6 +1,7 @@
 body {
     background-color: #3A6079;
 }
+
 #main {
     margin: 20px;
     border: solid 1px grey;
@@ -9,6 +10,7 @@ body {
     min-height: 600px;
     min-width: 900px;
 }
+
 #main, .used, .alpha, .book {
     border-radius: 7px;
 }

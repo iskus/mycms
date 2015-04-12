@@ -1,8 +1,7 @@
 <?php
 
 	class Books {
-		use ABCManager
-		{
+		use ABCManager {
 
 		}
 		private $id;
@@ -18,7 +17,7 @@
 
 		}
 
-		public function getCategory(){
+		public function getCategory() {
 
 		}
 
@@ -52,7 +51,6 @@
 		public function getId() {
 			return $this->id;
 		}
-
 
 
 	}

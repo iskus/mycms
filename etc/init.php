@@ -1,7 +1,5 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: 777
- * Date: 11.04.2015
- * Time: 18:48
- */
+<?php if (!defined('PATH_TO_ROOT')) {
+	exit(404);
+}
+	require_once('config.php');
+	require_once('router.php');

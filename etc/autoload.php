@@ -1,13 +1,16 @@
 <?php
 
-    chdir(dirname(__FILE__));
-    
-    function __autoload($class_name) {
-	    if (is_file('../libs/'.$class_name.'.php'))  {
-		    require_once '../libs/'.$class_name.'.php';
-	    } elseif (is_file('../actions/'.$class_name.'.php')) {
-		    require_once '../actions/'.$class_name.'.php';
-	    } elseif (is_file('../views/'.$class_name.'.php')) {
-		    require_once '../views/'.$class_name.'.php';
-	    }
-    }
+	//chdir(dirname(__FILE__));
+
+	spl_autoload_register(function ($className) {var_dump($className);
+		$classFile = $className . '.php';var_dump($classFile);
+		if (is_file($filename = PATH_TO_CORE . $classFile)) {var_dump($filename);
+			require_once $filename;
+		} elseif (is_file($filename = PATH_TO_LIBS . $classFile)) {var_dump($filename);
+			require_once $filename;
+		} elseif (is_file($filename = PATH_TO_APP  . 'controller/' . $classFile)) {var_dump($filename);
+			require_once $filename;
+		} else {
+			var_dump($filename);
+		}
+	});

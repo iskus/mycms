@@ -5,7 +5,7 @@
 		protected function execute() {
 			$Book = new Books();
 
-			if($ajax = Data::getRequest('ajax')) {
+			if ($ajax = Data::getRequest('ajax')) {
 				$this->ajaxManager($Book);
 			}
 			$this->params['books'] = $Book->_getListData();
