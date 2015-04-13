@@ -1,7 +1,5 @@
 <?php
-	namespace app\controller;
-
-	class indexAction extends Action {
+	class Index extends Controller {
 		/*protected $params = array();
 		protected $page;
 		protected $viewName;

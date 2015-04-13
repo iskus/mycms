@@ -1,4 +1,5 @@
 <?php
+
 	class Router {
 		private $controller = 'index',
 			$action = 'index',
@@ -7,6 +8,7 @@
 
 		function __construct() {
 			$route = explode('/', $_REQUEST['route']);
+			var_dump($route);
 			if ($route && $route != '/') {
 				$this->controller = $route[0];
 				if (count($route) > 1) {

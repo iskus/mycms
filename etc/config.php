@@ -12,17 +12,29 @@
 	require_once('autoload.php');
 
 
-	$configDbConnections = new ArrayObject();
+	$dbConnectionConfigs = new ArrayObject();
 
 	$mysqlConfig =
 	$mongoConfig =
 		new stdClass();
 
-	/* MySQL connection configuration */
+/** MySQL connection configuration */
 	$mysqlConfig->host = 'localhost';
 	$mysqlConfig->user = 'root';
 	$mysqlConfig->pass = '';
 	$mysqlConfig->db = 'localtest';
-	$configDbConnections->offsetSet('mysql', $mysqlConfig);
+	$dbConnectionConfigs->offsetSet('mysql', $mysqlConfig);
 
-	var_dump($configDbConnections);
+/** MongoDB connection configuration */
+	$mongoConfig->host = '';
+	//...
+	$dbConnectionConfigs->offsetSet('mongo', $mongoConfig);
+
+
+
+
+
+
+
+
+	Config::setDbConfigs($dbConnectionConfigs);

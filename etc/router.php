@@ -1,8 +1,12 @@
 <?php
 	$router = new Router();
-	$controller = $router->getController();
+	$controller = ucfirst($router->getController());
 	$action = $router->getAction();
-	$params = $router->getParams();
+	$params = $router->getParams() ? $router->getParams() : FALSE;
 
-	$exec = new $controller();
-	$exec->$action();
+	try {
+		$exec = new $controller($params);
+		$exec->$action();
+	} catch (Exception $e) {
+		echo $e->getMessage();
+	}

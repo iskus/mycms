@@ -1,6 +1,5 @@
 <?php
-
-	class testAction extends Action {
+	class Test extends Controller {
 
 		protected function execute() {
 			$Book = new Books();
