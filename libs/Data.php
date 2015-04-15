@@ -1,8 +1,8 @@
 <?php
 
 	class Data {
-		public static $alphabets = array(
-			'ru' => array(
+		public static $alphabets = [
+			'ru' => [
 				'А',
 				'Б',
 				'В',
@@ -36,8 +36,8 @@
 				'Э',
 				'Ю',
 				'Я'
-			),
-			'en' => array(
+			],
+			'en' => [
 				'A',
 				'B',
 				'C',
@@ -64,8 +64,8 @@
 				'X',
 				'Y',
 				'Z'
-			),
-		);
+			],
+		];
 
 		public static function getRequest($key) {
 			return empty($_REQUEST[$key]) ? false : $_REQUEST[$key];

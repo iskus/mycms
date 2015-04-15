@@ -10,9 +10,9 @@
 				'field' => 'title',
 				'table' => 'books'
 			]);
-			var_dump($alpha->_getCountsData());
-//			$author = new Author();
-//			var_dump($author->getAllAuthors());
+			var_dump($alpha->_getCountRowsForEveryLetter());
+			$author = new MAuthor();
+			var_dump($author->getAllAuthors());
 		}
 
 		protected function execute() {

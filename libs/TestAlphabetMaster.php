@@ -29,14 +29,15 @@
 
 		}
 
-		public function _getCountsData() {
-			$sql = "SELECT IF (SUBSTR(TRIM({$this->_field}),1,4) = 'the',
+		public function _getCountRowsForEveryLetter() {
+			$sql =
+				"SELECT IF (SUBSTR(TRIM({$this->_field}),1,4) = 'the',
 							SUBSTR(TRIM({$this->_field}),5,1),
-							SUBSTR(TRIM({$this->_field}),1,1)
-						) AS letter,
+							SUBSTR(TRIM({$this->_field}),1,1)) AS letter,
 						COUNT({$this->_field}) AS total
-						FROM {$this->_table} WHERE {$this->_field} <> '' GROUP BY letter;";
-var_dump($sql);
+						FROM {$this->_table}
+						WHERE {$this->_field} <> '' GROUP BY letter;";
+
 			if ($result = $this->_DB->query($sql)) {
 				while ($row = $result->fetch_assoc()) {
 					$this->_countsData[mb_strtoupper($row['letter'])] = $row['total'];
