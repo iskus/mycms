@@ -1,6 +1,6 @@
-<?php if (!defined('PATH_TO_ROOT')) {
-	exit();
-}
+<?php if (!defined('PATH_TO_ROOT')) { exit(); }
+	use core\Config as Config;
+
 	define('PATH_TO_APP', PATH_TO_ROOT . '/app/');
 	define('PATH_TO_CORE', PATH_TO_ROOT . '/core/');
 	define('PATH_TO_LIBS', PATH_TO_ROOT . '/libs/');
@@ -12,7 +12,7 @@
 	require_once('autoload.php');
 
 
-	Config::setDbConfigs(new ArrayObject());
+	Config::setDbConfigs([]);
 
 	$mysqlConfig = new stdClass();
 	$mongoConfig = clone $mysqlConfig;

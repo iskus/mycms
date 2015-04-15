@@ -1,4 +1,7 @@
 <?php
+	namespace app\model;
+	use core\Model as Model;
+
 	class MAuthor extends Model {
 
 		public function getAllAuthors() {

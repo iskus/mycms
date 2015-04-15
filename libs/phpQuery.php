@@ -1,4 +1,5 @@
 <?php
+	namespace libs;
 	/**
 	 * phpQuery is a server-side, chainable, CSS3 selector driven
 	 * Document Object Model (DOM) API based on jQuery JavaScript Library.
@@ -1263,8 +1264,8 @@
 	 * @package phpQuery
 	 * @method phpQueryObject clone() clone()
 	 * @method phpQueryObject empty() empty()
-	 * @method phpQueryObject next() next($selector = null)
-	 * @method phpQueryObject prev() prev($selector = null)
+	 * @method phpQueryObject->next() next($selector = null)
+	 * @method //phpQueryObject->prev() prev($selector = null)
 	 * @property Int $length
 	 */
 	class phpQueryObject
@@ -1273,7 +1274,7 @@
 		/**
 		 * DOMDocument class.
 		 *
-		 * @var DOMDocument
+		 * @var \DOMDocument
 		 */
 		public $document = null;
 		public $charset = null;
@@ -1285,7 +1286,7 @@
 		/**
 		 * XPath interface.
 		 *
-		 * @var DOMXPath
+		 * @var \DOMXPath
 		 */
 		public $xpath = null;
 		/**
@@ -3327,7 +3328,7 @@
 		 * jQuey difference
 		 *
 		 * @param $markup
-		 * @return unknown_type
+		 * @return string unknown_type
 		 */
 		public function markupOuter($callback1 = null, $callback2 = null, $callback3 = null) {
 			$args = func_get_args();
@@ -3880,7 +3881,7 @@
 		 * @return unknown_type
 		 */
 		public static function extend($class, $file = null) {
-			return $this->plugin($class, $file);
+			return self::plugin($class, $file);
 		}
 
 		/**
@@ -3936,7 +3937,6 @@
 				$this->getElementSiblings('nextSibling', $selector, true)
 			);
 		}
-
 		/**
 		 * Use prev() and next().
 		 *
@@ -5388,7 +5388,7 @@
 			return $php;
 		}
 
-		public static function _phpToMarkupCallback($php, $charset = 'utf-8') {
+		public static function _phpToMarkupCallback($m, $charset = 'utf-8') {
 			return $m[1] . $m[2]
 			. htmlspecialchars("<" . "?php" . $m[4] . "?" . ">", ENT_QUOTES | ENT_NOQUOTES, $charset)
 			. $m[5] . $m[2];
@@ -5645,7 +5645,8 @@
 						continue;
 					}
 					if (isset(self::$pluginsStaticMethods[$method])) {
-						throw new Exception("Duplicate method '{$method}' from plugin '{$c}' conflicts with same method from plugin '" . self::$pluginsStaticMethods[$method] . "'");
+						throw new Exception("Duplicate method '{$method}' from plugin '{$class}' conflicts with same
+						method from plugin '" . self::$pluginsStaticMethods[$method] . "'");
 
 						return;
 					}
@@ -5668,7 +5669,8 @@
 						continue;
 					}
 					if (isset(self::$pluginsMethods[$method])) {
-						throw new Exception("Duplicate method '{$method}' from plugin '{$c}' conflicts with same method from plugin '" . self::$pluginsMethods[$method] . "'");
+						throw new Exception("Duplicate method '{$method}' from plugin '{$class}' conflicts with same
+						method from plugin '" . self::$pluginsMethods[$method] . "'");
 						continue;
 					}
 					self::$pluginsMethods[$method] = $class;
@@ -6124,16 +6126,16 @@
 		 * Get DOMDocument object related to $source.
 		 * Returns null if such document doesn't exist.
 		 *
-		 * @param $source DOMNode|phpQueryObject|string
+		 * @param $source \DOMNode|phpQueryObject|string
 		 * @return string
 		 */
 		public static function getDOMDocument($source) {
-			if ($source instanceof DOMDOCUMENT) {
+			if ($source instanceof \DOMDOCUMENT) {
 				return $source;
 			}
-			$source = self::getDocumentID($source);
+			$id = self::getDocumentID($source);
 
-			return $source
+			return $id
 				? self::$documents[$id]['document']
 				: null;
 		}
@@ -6142,18 +6144,18 @@
 		// http://docs.jquery.com/Utilities
 
 		/**
-		 *
-		 * @return unknown_type
+		 * @param $object
+		 * @return array unknown_type
 		 * @link http://docs.jquery.com/Utilities/jQuery.makeArray
 		 */
-		public static function makeArray($obj) {
+		public static function makeArray($object) {
 			$array = array();
-			if (is_object($object) && $object instanceof DOMNODELIST) {
+			if (is_object($object) && $object instanceof \DOMNODELIST) {
 				foreach ($object as $value) {
 					$array[] = $value;
 				}
 			} else {
-				if (is_object($object) && !($object instanceof Iterator)) {
+				if (is_object($object) && !($object instanceof \Iterator)) {
 					foreach (get_object_vars($object) as $name => $value) {
 						$array[0][$name] = $value;
 					}
@@ -6175,7 +6177,10 @@
 		 *
 		 * @param $object
 		 * @param $callback
-		 * @return unknown_type
+		 * @param $param1
+		 * @param $param2
+		 * @param $param3
+		 * @return mixed unknown_type
 		 * @link http://docs.jquery.com/Utilities/jQuery.each
 		 */
 		public static function each($object, $callback, $param1 = null, $param2 = null, $param3 = null) {
@@ -6184,7 +6189,7 @@
 				$paramStructure = func_get_args();
 				$paramStructure = array_slice($paramStructure, 2);
 			}
-			if (is_object($object) && !($object instanceof Iterator)) {
+			if (is_object($object) && !($object instanceof \Iterator)) {
 				foreach (get_object_vars($object) as $name => $value) {
 					phpQuery::callbackRun($callback, array($name, $value), $paramStructure);
 				}

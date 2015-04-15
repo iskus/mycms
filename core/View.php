@@ -1,4 +1,5 @@
 <?php
+	namespace core;
 
 	/**
 	 * Semesenko Anton. Email: iskus1981@yandex.ru

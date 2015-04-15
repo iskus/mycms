@@ -1,4 +1,7 @@
 <?php
+	namespace app\controller;
+	use core\Controller as Controller;
+
 	class Test extends Controller {
 
 		public function index($params = FALSE) {
