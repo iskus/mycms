@@ -1,6 +1,6 @@
 <?php
 
-	trait ABCManager {
+	trait AlphabetMaster {
 		public $_letter = 'A';
 		public $_field = 'title';
 		public $_table = 'books';
@@ -26,11 +26,11 @@
 		}
 
 		public function _getCountsData() {
-			$sql = "SELECT IF (SUBSTR(TRIM(`title`),1,4) = 'the',
-							SUBSTR(TRIM(`title`),5,1),
-							SUBSTR(TRIM(`title`),1,1)
+			$sql = "SELECT IF (SUBSTR(TRIM({$this->_field}),1,4) = 'the',
+							SUBSTR(TRIM({$this->_field}),5,1),
+							SUBSTR(TRIM({$this->_field}),1,1)
 						) AS letter,
-						COUNT(`id`) AS total, lang
+						COUNT({$this->_field}) AS total, lang
 						FROM {$this->_table} WHERE {$this->_field} <> '' GROUP BY letter;";
 
 			if ($result = $this->_DB->query($sql)) {

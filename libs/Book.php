@@ -10,7 +10,8 @@
 		private $lang;
 
 		public function __construct() {
-			$this->_DB = DB::getInstance();
+			$this->_DB = Db::getInstance('mysql');
+			var_dump($this->_DB);
 		}
 
 		public function getBook() {

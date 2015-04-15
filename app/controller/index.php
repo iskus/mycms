@@ -1,5 +1,8 @@
 <?php
 	class Index extends Controller {
+		public function index($params = FALSE) {
+
+		}
 		/*protected $params = array();
 		protected $page;
 		protected $viewName;

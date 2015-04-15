@@ -8,12 +8,17 @@
 		protected $params;
 		protected $viewName;
 
-		public function __construct($page) {
-			$this->params['page'] = $page;
-			$this->viewName = $this->params['page'] . 'View';
+		public function __construct($action = 'index') {
+			//$this->$action();
+//			$this->params['page'] = $page;
+//			$this->viewName = $this->params['page'] . 'View';
+//
+//			$this->execute();
+//			$View = new $this->viewName($this->params);
+		}
 
-			$this->execute();
-			$View = new $this->viewName($this->params);
+		public function index($params = FALSE) {
+			var_dump($params);
 		}
 
 		protected function execute() {

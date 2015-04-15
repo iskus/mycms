@@ -10,15 +10,19 @@
 		private function __construct() {
 		}
 
-		public static function getDbConfig($driver) {
-			self::$dbConfigs->offsetGet($driver);
+		public static function getDbConfigs() {
+			return self::$dbConfigs;
 		}
 
 		public static function setDbConfigs(ArrayObject $collection) {
 			self::$dbConfigs = $collection;
 		}
 
-		public static function setDbConfig() {
+		public static function getDbConfig($driver) {
+			return self::$dbConfigs->offsetGet($driver);
+		}
 
+		public static function setDbConfig($key, stdClass $confObject) {
+			self::$dbConfigs->offsetSet($key, $confObject);
 		}
 	}

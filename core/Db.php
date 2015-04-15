@@ -17,7 +17,7 @@
 		}
 
 		private function addConnection($driver) {
-			$this->connections[$driver] = new DbConnection($driver);
+			$this->connections[$driver] = (new DbConnection($driver))->connect();
 		}
 
 		public static function getInstance($driver = false) {

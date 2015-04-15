@@ -1,6 +1,12 @@
 <?php
 	class Test extends Controller {
 
+		public function index($params = FALSE) {
+			echo 'INDEX';
+			$author = new Author();
+			var_dump($author->getAllAuthors());
+		}
+
 		protected function execute() {
 			$Book = new Books();
 
