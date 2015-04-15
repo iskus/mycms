@@ -3,8 +3,16 @@
 
 		public function index($params = FALSE) {
 			echo 'INDEX';
-			$author = new Author();
-			var_dump($author->getAllAuthors());
+			$book = new MBook();
+
+			$alpha = new TestAlphabetMaster($book->Db);
+			$alpha->_init([
+				'field' => 'title',
+				'table' => 'books'
+			]);
+			var_dump($alpha->_getCountsData());
+//			$author = new Author();
+//			var_dump($author->getAllAuthors());
 		}
 
 		protected function execute() {

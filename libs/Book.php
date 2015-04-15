@@ -1,5 +1,5 @@
 <?php
-
+namespace libs;
 	class Books {
 		use ABCManager {
 

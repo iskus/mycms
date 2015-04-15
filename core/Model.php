@@ -1,16 +1,14 @@
 <?php
-
-	/**
-	 * Semesenko Anton. Email: iskus1981@yandex.ru
-	 * IDE PhpStorm. 12.04.2015
-	 *
-	 * @property $Db object MysqlDbConnection
-	 */
+/**
+ * Semesenko Anton. Email: iskus1981@yandex.ru
+ * IDE PhpStorm. 12.04.2015
+ */
 	class Model {
 		/**
-		 * @var MysqlDbConnection
+		 * @var \MysqlDbConnection
 		 */
-		protected $Db;
+		public $Db;
+
 		public function __construct() {
 			$this->Db = Db::getInstance('mysql');
 		}
