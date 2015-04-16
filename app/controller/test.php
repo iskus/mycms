@@ -3,6 +3,7 @@
 	use core\Controller as Controller;
 	use app\model\Book as Book;
 	use app\model\Author as Author;
+	use core\sources\UsefulData;
 	use libs\TestAlphabetMaster as TestAlphabetMaster;
 
 	class Test extends Controller {
@@ -21,6 +22,12 @@
 			var_dump($author->getAllAuthors());
 		}
 
+		public function test($letter = FALSE) {
+			echo "<br/>{$letter[0]}<br/>>>> Test->test():<br/>>"
+			     . date('Y-m-d') . "<br/>>" . date('Y-m-d', time() - 60 * 60 * 24);
+			echo UsefulData::getRequest('c');
+		}
+
 		protected function execute() {
 			$Book = new Book();
 
@@ -31,7 +38,7 @@
 			$this->params['alphabets'] = $Book->_getCountsData();
 		}
 
-		protected function ajaxManager(Books $Book) {
+		protected function ajaxManager(Book $Book) {
 			$letter = Data::getRequest('letter');
 			$this->params['books'] = $Book->_getListData(['letter' => $letter]);
 			exit(json_encode($this->params['books']));

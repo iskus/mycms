@@ -23,5 +23,5 @@
 	$params = $router->getParams() ? $router->getParams() : FALSE;
 
 	use core\App as App;
-	$app = new App($controller, $action, $params);
+	var_dump($app = new App($controller, $action, $params));
 	$app->run();

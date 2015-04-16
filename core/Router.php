@@ -3,8 +3,8 @@
 
 	class Router {
 		private $controller = 'index',
-			$action = 'index',
-			$params = [];
+				$action = 'index',
+				$params = [];
 
 
 		function __construct() {
@@ -15,7 +15,8 @@
 				if (count($route) > 1) {
 					foreach ($route as $key => $val) {
 						if ($key == 1) {
-							$this->action = $val;
+							$this->action =
+								$val ? $val : 'index';
 						} elseif ($key > 1) {
 							$this->params[] = $val;
 						}

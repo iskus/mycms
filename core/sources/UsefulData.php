@@ -12,7 +12,7 @@ namespace core\sources;
 			],
 		];
 
-		public static function getRequest($key) {
+		public static function getRequest($key = '') {
 
 			return empty($_REQUEST[$key]) ? false : $_REQUEST[$key];
 		}
