@@ -1,4 +1,5 @@
 <?php
+	namespace core\database;
 	class Db {
 		private $connections;
 		private static $instance;
@@ -9,7 +10,7 @@
 
 		/**
 		 * @param $driver
-		 * @return \MysqlDbConnection
+		 * @return MysqlDbConnection
 		 */
 		private function getConnection($driver) {
 			if (!is_object($this->connections[$driver])) {
@@ -20,7 +21,7 @@
 		}
 
 		private function addConnection($driver) {
-			$this->connections[$driver] = (new \DbConnection($driver))->connect();
+			$this->connections[$driver] = (new DbConnection($driver))->connect();
 		}
 
 		/**

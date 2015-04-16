@@ -14,15 +14,15 @@ namespace core;
 			return self::$dbConfigs;
 		}
 
-		public static function setDbConfigs(array $collection) {
+		public static function setDbConfigs(\ArrayObject $collection) {
 			self::$dbConfigs = $collection;
 		}
 
 		public static function getDbConfig($driver) {
-			return self::$dbConfigs[$driver];
+			return self::$dbConfigs->offsetGet($driver);
 		}
 
-		public static function setDbConfig($key, \stdClass $confObject) {
-			self::$dbConfigs[$key] = $confObject;
+		public static function setDbConfig($key, $value) {
+			self::$dbConfigs->offsetSet($key, $value);
 		}
 	}

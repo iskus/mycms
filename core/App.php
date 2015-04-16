@@ -5,7 +5,6 @@
  */
 
 namespace core;
-use app\controller;
 
 
 class App {

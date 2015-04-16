@@ -1,12 +1,15 @@
 <?php
 	namespace app\controller;
 	use core\Controller as Controller;
+	use app\model\Book as Book;
+	use app\model\Author as Author;
+	use libs\TestAlphabetMaster as TestAlphabetMaster;
 
 	class Test extends Controller {
 
 		public function index($params = FALSE) {
 			echo 'INDEX';
-			$book = new MBook();
+			$book = new Book();
 
 			$alpha = new TestAlphabetMaster($book->Db);
 			$alpha->_init([
@@ -14,12 +17,12 @@
 				'table' => 'books'
 			]);
 			var_dump($alpha->_getCountRowsForEveryLetter());
-			$author = new MAuthor();
+			$author = new Author();
 			var_dump($author->getAllAuthors());
 		}
 
 		protected function execute() {
-			$Book = new Books();
+			$Book = new Book();
 
 			if ($ajax = Data::getRequest('ajax')) {
 				$this->ajaxManager($Book);
