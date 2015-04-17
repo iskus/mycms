@@ -1,6 +1,6 @@
 <?php
 
-	trait AlphabetMaster {
+	trait TAlphabetMaster {
 		public $_letter = 'A';
 		public $_field = 'title';
 		public $_table = 'books';

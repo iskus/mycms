@@ -17,6 +17,11 @@
 	$configCollection->offsetSet('mysql', $mysqlConfig);
 
 /** MongoDB connection configuration */
-	$mongoConfig->host = '';
+	$mongoConfig->host = '127.0.0.1';
+	$mongoConfig->port = '27017';
+	$mongoConfig->user = 'admin';
+	$mongoConfig->pass = 'admin';
+	$mongoConfig->db = 'data';
+
 	//...
 	$configCollection->offsetSet('mongo', $mongoConfig);

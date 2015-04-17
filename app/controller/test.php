@@ -4,6 +4,7 @@
 	use app\model\Book as Book;
 	use app\model\Author as Author;
 	use core\sources\UsefulData;
+	use core\View;
 	use libs\TestAlphabetMaster as TestAlphabetMaster;
 
 	class Test extends Controller {
@@ -17,15 +18,14 @@
 				'field' => 'title',
 				'table' => 'books'
 			]);
-			var_dump($alpha->_getCountRowsForEveryLetter());
-			$author = new Author();
-			var_dump($author->getAllAuthors());
+			//var_dump($alpha->_getCountRowsForEveryLetter());
 		}
 
 		public function test($letter = FALSE) {
 			echo "<br/>{$letter[0]}<br/>>>> Test->test():<br/>>"
 			     . date('Y-m-d') . "<br/>>" . date('Y-m-d', time() - 60 * 60 * 24);
 			echo UsefulData::getRequest('c');
+			var_dump($this->view);
 		}
 
 		protected function execute() {

@@ -4,11 +4,12 @@
 	 * Semesenko Anton. Email: iskus1981@yandex.ru
 	 * IDE PhpStorm. 12.04.2015
 	 */
-	class Controller {
-		protected $params;
-		protected $viewName;
+	class Controller extends App {
+		protected $vars;
+		protected $view;
 
-		public function __construct($action = 'index') {
+		public function __construct($vars = FALSE) {
+			$this->view = new View();
 			//$this->$action();
 //			$this->params['page'] = $page;
 //			$this->viewName = $this->params['page'] . 'View';
