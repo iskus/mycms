@@ -9,8 +9,8 @@
 
 		function __construct() {
 			$route = explode('/', $_REQUEST['route']);
-			var_dump($route);
-			if (!empty($route[0]) && $route != '/') {var_dump($route[0],'ccc');
+
+			if (!empty($route[0]) && $route != '/') {
 				$this->controller = $route[0];
 				if (count($route) > 1) {
 					foreach ($route as $key => $val) {
@@ -29,7 +29,7 @@
 		 * @return string
 		 */
 		public function getController() {
-			return $this->controller;
+			return ucfirst($this->controller);
 		}
 
 		/**

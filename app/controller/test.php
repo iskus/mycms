@@ -3,9 +3,10 @@
 	use core\Controller as Controller;
 	use app\model\Book as Book;
 	use app\model\Author as Author;
+	use core\Loader;
 	use core\sources\UsefulData;
-	use core\View;
-	use libs\TestAlphabetMaster as TestAlphabetMaster;
+	//use core\View;
+	//use libs\TestAlphabetMaster as TestAlphabetMaster;
 
 	class Test extends Controller {
 
@@ -13,12 +14,12 @@
 			echo 'INDEX';
 			$book = new Book();
 
-			$alpha = new TestAlphabetMaster($book->Db);
+			$alpha = Loader::getLibrary('TestAlphabetMaster', $book->Db);
 			$alpha->_init([
 				'field' => 'title',
 				'table' => 'books'
 			]);
-			//var_dump($alpha->_getCountRowsForEveryLetter());
+			var_dump($alpha->_getCountRowsForEveryLetter(), '1111111111111111111111111111111111111111111111');
 		}
 
 		public function test($letter = FALSE) {

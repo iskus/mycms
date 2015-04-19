@@ -11,7 +11,7 @@ namespace libs;
 
 		public function __construct() {
 			$this->_DB = Db::getInstance('mysql');
-			var_dump($this->_DB);
+			//var_dump($this->_DB);
 		}
 
 		public function getBook() {

@@ -6,24 +6,22 @@
 
 namespace core;
 
-
 class App {
-	public  $controller,
-			$action,
-			$params;
+	public static   $controller,
+					$action,
+					$params;
 
 	public function __construct($c, $a, $p = []) {
-		$this->controller   = $c;
-		$this->action       = $a;
-		$this->params       = $p;
+		self::$controller   = $c;
+		self::$action       = $a;
+		self::$params       = $p;
 	}
 
 	public function run() {
-		$controller = '\app\controller\\' . $this->controller;
-
+		$controller = APP_FOLDER . '\\controller\\' . self::$controller;
 		try {
-			$exec = new $controller();
-			$exec->{$this->action}($this->params);
+			$run = new $controller();
+			$run->{self::$action}(self::$params);
 		} catch (\Exception $e) {
 			echo $e->getMessage();
 		}

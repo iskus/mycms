@@ -5,6 +5,7 @@
 	define('PATH_TO_JS', PATH_TO_WEB . '/js/');
 	define('PATH_TO_CSS', PATH_TO_WEB . '/css/');
 	define('PATH_TO_IMG', PATH_TO_WEB . '/img/');
+	define('PATH_TO_TEMPLATES', PATH_TO_APP . 'view/templates/');
 
 	$mysqlConfig = new stdClass();
 	$mongoConfig = clone $mysqlConfig;

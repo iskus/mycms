@@ -12,16 +12,14 @@
 	foreach ($appConfig as $index => $value)
 		$configCollection->offsetSet($index, $value);
 
-	use core\Config as Config;
-	Config::setDbConfigs($configCollection);
-	var_dump(Config::getDbConfigs());
+	core\Config::setDbConfigs($configCollection);
 
-	use core\Router as Router;
-	$router = new Router();
-	$controller = ucfirst($router->getController());
+	$router = new core\Router();
+	$controller = $router->getController();
 	$action = $router->getAction();
 	$params = $router->getParams() ? $router->getParams() : FALSE;
 
-	use core\App as App;
-	var_dump($app = new App($controller, $action, $params));
+	$app = new core\App($controller, $action, $params);
 	$app->run();
+
+	debug_print_backtrace();

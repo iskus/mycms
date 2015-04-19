@@ -4,7 +4,7 @@
 	 * Semesenko Anton. Email: iskus1981@yandex.ru
 	 * IDE PhpStorm. 12.04.2015
 	 */
-	class Controller extends App {
+	class Controller {
 		protected $vars;
 		protected $view;
 
@@ -18,10 +18,4 @@
 //			$View = new $this->viewName($this->params);
 		}
 
-		public function index($params = FALSE) {
-			var_dump($params);
-		}
-
-		protected function execute() {
-		}
 	}

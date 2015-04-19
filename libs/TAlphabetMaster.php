@@ -1,4 +1,5 @@
 <?php
+	namespace libs;
 
 	trait TAlphabetMaster {
 		public $_letter = 'A';
